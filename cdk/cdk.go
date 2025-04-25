@@ -43,7 +43,7 @@ func NewDynamoDBStreamsLambdaGolangStack(scope constructs.Construct, id string, 
 
 	createUserFunction := awscdklambdagoalpha.NewGoFunction(stack, jsii.String("create-function"),
 		&awscdklambdagoalpha.GoFunctionProps{
-			Runtime:     awslambda.Runtime_GO_1_X(),
+			Runtime:     awslambda.Runtime_PROVIDED_AL2(),
 			Environment: &map[string]*string{envVarName: sourceDynamoDBTable.TableName()},
 			Entry:       jsii.String(createFunctionDir)})
 
@@ -72,7 +72,7 @@ func NewDynamoDBStreamsLambdaGolangStack(scope constructs.Construct, id string, 
 
 	replicateUserFunction := awscdklambdagoalpha.NewGoFunction(stack, jsii.String("replicate-function"),
 		&awscdklambdagoalpha.GoFunctionProps{
-			Runtime:     awslambda.Runtime_GO_1_X(),
+			Runtime:     awslambda.Runtime_PROVIDED_AL2(),
 			Environment: &map[string]*string{envVarName: targetDynamoDBTable.TableName()},
 			Entry:       jsii.String(replicateFunctionDir)})
 
