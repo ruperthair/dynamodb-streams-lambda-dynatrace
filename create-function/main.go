@@ -1,3 +1,4 @@
+// Handle API Gateway V2 HTTP requests and insert the user data into DynamoDB
 package main
 
 import (
